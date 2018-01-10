@@ -8,11 +8,11 @@ Feature: Auction bidding
           | item                                    | price |
           | Chicago Bullet Speed Skate (Size 7)     | 50    |
           | Riedell Dart Derby Skates (size 8)      | 110   |
-    And I want to bid "62" dollars for "Chicago Bullet Speed Skate (Size 7)"
+    And I want to bid "60" dollars for "Chicago Bullet Speed Skate (Size 7)"
     And I open auctions web page
     And I click on show button next to "Chicago Bullet Speed Skate (Size 7)"
     And I should see "Auction details"
-    And I insert the price "60" dollars
+    And I insert the bid
     When I summit the betting request
     Then I should receive a confirmation message and price should be updated
 
@@ -26,6 +26,6 @@ Feature: Auction bidding
     And I open auctions web page
     And I click on show button next to "Riedell Dart Derby Skates (size 8)"
     And I should see "Auction details"
-    And I insert the price "100" dollars
+    And I insert the bid
     When I summit the betting request
     Then I should receive a rejection message and price should not be updated
