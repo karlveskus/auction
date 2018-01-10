@@ -16,4 +16,5 @@ config :auction, Auction.Repo,
   password: "postgres",
   database: "auction_test",
   hostname: "localhost",
+  port: "5433",
   pool: Ecto.Adapters.SQL.Sandbox

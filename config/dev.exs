@@ -53,4 +53,5 @@ config :auction, Auction.Repo,
   password: "postgres",
   database: "auction_dev",
   hostname: "localhost",
+  port: "5433",
   pool_size: 10
