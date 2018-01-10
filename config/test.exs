@@ -18,3 +18,6 @@ config :auction, Auction.Repo,
   hostname: "localhost",
   port: "5433",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :hound, driver: "chrome_driver"
+config :auction, sql_sandbox: true

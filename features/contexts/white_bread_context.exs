@@ -1,8 +1,27 @@
 defmodule WhiteBreadContext do
   use WhiteBread.Context
+  use Hound.Helpers
+  alias Auction.{Repo,Auction}
+
+  feature_starting_state fn  ->
+    Application.ensure_all_started(:hound)
+    %{}
+  end
+  scenario_starting_state fn _state ->
+    Hound.start_session
+    %{}
+  end
+  scenario_finalize fn _status, _state ->
+    Hound.end_session
+  end
 
   given_ ~r/^the following auctions are open$/,
   fn state, %{table_data: table} ->
+
+    table
+    |> Enum.map(fn auction -> Auction.changeset(%Auction{"status": "open"}, auction) end)
+    |> Enum.each(fn changeset -> Repo.insert!(changeset) end)
+
     {:ok, state}
   end
 
