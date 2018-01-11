@@ -1,1 +1,25 @@
-Jou
+<table class="table">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <%= for auction <- @auctions do %>
+
+            <tr>
+                <td><%= auction.item %></td>
+                <td><%= auction.price %></td>
+                <td>
+                    <a id="show-<%= auction.id %>-button"
+                       href="<%= auction_path(@conn, :show, auction.id) %>"
+                       >See more</a>
+                </td>
+            </tr>
+
+        <% end %>
+    </tbody>
+</table>

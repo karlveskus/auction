@@ -11,7 +11,7 @@ Feature: Auction bidding
     And I want to bid "60" dollars for "Chicago Bullet Speed Skate (Size 7)"
     And I open auctions web page
     And I click on show button next to "Chicago Bullet Speed Skate (Size 7)"
-    And I should see "Auction details"
+    And I should see Auction details
     And I insert the bid
     When I summit the betting request
     Then I should receive a confirmation message and price should be updated
@@ -25,7 +25,7 @@ Feature: Auction bidding
     And I want to bid "100" dollars for "Riedell Dart Derby Skates (size 8)"
     And I open auctions web page
     And I click on show button next to "Riedell Dart Derby Skates (size 8)"
-    And I should see "Auction details"
+    And I should see Auction details
     And I insert the bid
     When I summit the betting request
     Then I should receive a rejection message and price should not be updated

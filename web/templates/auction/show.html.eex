@@ -1,0 +1,4 @@
+<section>
+    Auction details
+    <%= @auction.item %>
+</section>

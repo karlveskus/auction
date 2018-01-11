@@ -15,7 +15,7 @@ defmodule WhiteBreadContext do
   end
   scenario_finalize fn _status, _state ->
     Ecto.Adapters.SQL.Sandbox.checkin(Repo)
-    Hound.end_session
+    #Hound.end_session
     #nil
   end
 
@@ -47,10 +47,8 @@ defmodule WhiteBreadContext do
     {:ok, state}
   end
 
-  and_ ~r/^I should see "(?<item>[^"]+)"$/,
-  fn state, %{item: item} ->
-    assert visible_in_page? item
-    assert visible_in_page? "Auction details"
+  and_ ~r/^I should see Auction details$/, fn state ->
+    assert visible_in_page? ~r/Auction details/
 
     {:ok, state}
   end
