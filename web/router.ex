@@ -16,6 +16,8 @@ defmodule Auction.Router do
   scope "/", Auction do
     pipe_through :browser # Use the default browser stack
 
+    resources "/auctions", AuctionController, only: [:index]
+
     get "/", PageController, :index
   end
 

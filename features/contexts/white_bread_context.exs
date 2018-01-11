@@ -9,12 +9,12 @@ defmodule WhiteBreadContext do
   end
   scenario_starting_state fn _state ->
     Hound.start_session
-    #Ecto.Adapters.SQL.Sandbox.checkout(Auction.Repo)
-    #Ecto.Adapters.SQL.Sandbox.mode(Auction.Repo, {:shared, self()})
+    Ecto.Adapters.SQL.Sandbox.checkout(Repo)
+    Ecto.Adapters.SQL.Sandbox.mode(Repo, {:shared, self()})
     %{}
   end
   scenario_finalize fn _status, _state ->
-    #Ecto.Adapters.SQL.Sandbox.checkin(Auction.Repo)
+    Ecto.Adapters.SQL.Sandbox.checkin(Repo)
     Hound.end_session
     #nil
   end
